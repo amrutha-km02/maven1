@@ -1,9 +1,9 @@
-
 name: Java CI/CD pipeline
 
 on:
   push:
     branches: ["main"]
+    
   workflow_dispatch:
 
 jobs:
@@ -19,9 +19,9 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          cache: maven
-          cache-dependency-path: demo/pom.xml
 
-      - name: Build Maven Project
-        working-directory: demo
-        run: mvn -B clean verify
+      - name: Compile Java Program
+        run: javac New.java
+
+      - name: Run Java Program
+        run: java New
